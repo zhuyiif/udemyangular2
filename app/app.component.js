@@ -26,11 +26,20 @@ System.register(['angular2/core', './courses.component', './author.component'], 
         execute: function() {
             AppComponent = (function () {
                 function AppComponent() {
+                    this.isFavorite = false;
                 }
+                AppComponent.prototype.onClick = function () {
+                    this.isFavorite = !this.isFavorite;
+                    console.log('on click' + this.isFavorite);
+                };
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', Object)
+                ], AppComponent.prototype, "isFavorite", void 0);
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: '<h1>My name is judy</h1><courses></courses><authers></authers>',
+                        template: "\n    <link data-require=\"bootstrap-css@3.3.6\" data-semver=\"3.3.6\" rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\" />\n    <h1>My name is judy</h1><courses></courses><authers></authers>\n    <i\n    class=\"glyphicon\"\n    [class.glyphicon-star-empty] = \"!isFavorite\"\n    [class.glyphicon-star] = \"isFavorite\"\n    (click)=\"onClick()\">\n    </i>\n    ",
                         directives: [courses_component_1.CoursesComponent, author_component_1.AuthersComponent]
                     }), 
                     __metadata('design:paramtypes', [])
