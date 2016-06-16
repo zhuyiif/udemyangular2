@@ -6,6 +6,11 @@ import {AuthersComponent} from './author.component';
     selector: 'favorite',
     templateUrl:"app/favorite.template.html"
     ,
+    styles: [`
+      .glyphicon-star {
+        color: orange;
+      }
+    `],
     directives: [CoursesComponent ,AuthersComponent]
 })
 export class FavoriteComponent {

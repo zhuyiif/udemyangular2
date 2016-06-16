@@ -46,6 +46,7 @@ System.register(['angular2/core', './courses.component', './author.component'], 
                     core_1.Component({
                         selector: 'favorite',
                         templateUrl: "app/favorite.template.html",
+                        styles: ["\n      .glyphicon-star {\n        color: orange;\n      }\n    "],
                         directives: [courses_component_1.CoursesComponent, author_component_1.AuthersComponent]
                     }), 
                     __metadata('design:paramtypes', [])
