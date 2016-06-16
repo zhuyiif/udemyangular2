@@ -40,8 +40,8 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 HeartComponent = __decorate([
                     core_1.Component({
                         selector: 'heart',
-                        template: "\n    <link data-require=\"bootstrap-css@3.3.6\" data-semver=\"3.3.6\" rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\" />\n    <i\n    class=\"glyphicon\"\n    [class.glyphicon-heart] = \"isFavorite\"\n    [class.glyphicon-heart-empty] = \"!isFavorite\"\n    (click)=\"onClick()\">{{favNumber}}\n    </i>\n\n    ",
-                        styles: ["\n      .glyphicon-heart {\n          color: orange\n      }\n    "],
+                        template: "\n    <link data-require=\"bootstrap-css@3.3.6\" data-semver=\"3.3.6\" rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\" />\n    <i\n    class=\"glyphicon glyphicon-heart\"\n    [class.highlighted] = \"isFavorite\"\n    (click)=\"onClick()\">\n    </i>\n    <span>{{favNumber}}</span>\n\n    ",
+                        styles: ["\n      .glyphicon-heart {\n          color: orange\n      }\n\n      .highlighted {\n          color: deeppink\n      }\n    "],
                     }), 
                     __metadata('design:paramtypes', [])
                 ], HeartComponent);

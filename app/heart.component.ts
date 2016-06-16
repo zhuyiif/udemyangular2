@@ -5,11 +5,11 @@ import {Component,Input,Output,EventEmitter} from 'angular2/core';
     template: `
     <link data-require="bootstrap-css@3.3.6" data-semver="3.3.6" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
     <i
-    class="glyphicon"
-    [class.glyphicon-heart] = "isFavorite"
-    [class.glyphicon-heart-empty] = "!isFavorite"
-    (click)="onClick()">{{favNumber}}
+    class="glyphicon glyphicon-heart"
+    [class.highlighted] = "isFavorite"
+    (click)="onClick()">
     </i>
+    <span>{{favNumber}}</span>
 
     `
     ,
@@ -17,6 +17,10 @@ import {Component,Input,Output,EventEmitter} from 'angular2/core';
     [`
       .glyphicon-heart {
           color: orange
+      }
+
+      .highlighted {
+          color: deeppink
       }
     `],
 })
