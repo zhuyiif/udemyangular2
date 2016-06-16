@@ -27,19 +27,25 @@ System.register(['angular2/core', './courses.component', './author.component'], 
             FavoriteComponent = (function () {
                 function FavoriteComponent() {
                     this.isFavorite = false;
+                    this.change = new core_1.EventEmitter();
                 }
                 FavoriteComponent.prototype.onClick = function () {
                     this.isFavorite = !this.isFavorite;
                     console.log('on click' + this.isFavorite);
+                    this.change.emit({ newValue: this.isFavorite });
                 };
                 __decorate([
                     core_1.Input(), 
                     __metadata('design:type', Object)
                 ], FavoriteComponent.prototype, "isFavorite", void 0);
+                __decorate([
+                    core_1.Output(), 
+                    __metadata('design:type', Object)
+                ], FavoriteComponent.prototype, "change", void 0);
                 FavoriteComponent = __decorate([
                     core_1.Component({
                         selector: 'favorite',
-                        template: "\n    <link data-require=\"bootstrap-css@3.3.6\" data-semver=\"3.3.6\" rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\" />\n    <i\n    class=\"glyphicon\"\n    [class.glyphicon-star-empty] = \"!isFavorite\"\n    [class.glyphicon-star] = \"isFavorite\"\n    (click)=\"onClick()\">\n    </i>\n    ",
+                        templateUrl: "app/favorite.template.html",
                         directives: [courses_component_1.CoursesComponent, author_component_1.AuthersComponent]
                     }), 
                     __metadata('design:paramtypes', [])

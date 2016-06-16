@@ -8,7 +8,7 @@ import {FavoriteComponent} from './favorite.component';
     template: `
     <link data-require="bootstrap-css@3.3.6" data-semver="3.3.6" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
     <h1>My name is judy</h1><courses></courses><authers></authers>
-    <favorite [isFavorite]= "post.isFavorite"></favorite>
+    <favorite [isFavorite]= "post.isFavorite" (change)="onFavoriteChange($event)"></favorite>
     `
     ,
     directives: [CoursesComponent ,AuthersComponent,FavoriteComponent]
@@ -17,5 +17,8 @@ export class AppComponent {
   post = {
     title: "Title",
     isFavorite:true
+  }
+  onFavoriteChange($event) {
+    console.log($event);
   }
 }

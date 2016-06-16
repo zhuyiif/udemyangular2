@@ -34,10 +34,13 @@ System.register(['angular2/core', './courses.component', './author.component', '
                         isFavorite: true
                     };
                 }
+                AppComponent.prototype.onFavoriteChange = function ($event) {
+                    console.log($event);
+                };
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n    <link data-require=\"bootstrap-css@3.3.6\" data-semver=\"3.3.6\" rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\" />\n    <h1>My name is judy</h1><courses></courses><authers></authers>\n    <favorite [isFavorite]= \"post.isFavorite\"></favorite>\n    ",
+                        template: "\n    <link data-require=\"bootstrap-css@3.3.6\" data-semver=\"3.3.6\" rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\" />\n    <h1>My name is judy</h1><courses></courses><authers></authers>\n    <favorite [isFavorite]= \"post.isFavorite\" (change)=\"onFavoriteChange($event)\"></favorite>\n    ",
                         directives: [courses_component_1.CoursesComponent, author_component_1.AuthersComponent, favorite_component_1.FavoriteComponent]
                     }), 
                     __metadata('design:paramtypes', [])
