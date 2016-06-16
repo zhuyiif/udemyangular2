@@ -1,4 +1,4 @@
-System.register(['angular2/core', './courses.component', './author.component', './favorite.component', './heart.component'], function(exports_1, context_1) {
+System.register(['angular2/core', './courses.component', './author.component', './favorite.component', './heart.component', './tweet.component', './tweet.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', './courses.component', './author.component', '
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, courses_component_1, author_component_1, favorite_component_1, heart_component_1;
+    var core_1, courses_component_1, author_component_1, favorite_component_1, heart_component_1, tweet_component_1, tweet_service_1;
     var AppComponent;
     return {
         setters:[
@@ -28,14 +28,21 @@ System.register(['angular2/core', './courses.component', './author.component', '
             },
             function (heart_component_1_1) {
                 heart_component_1 = heart_component_1_1;
+            },
+            function (tweet_component_1_1) {
+                tweet_component_1 = tweet_component_1_1;
+            },
+            function (tweet_service_1_1) {
+                tweet_service_1 = tweet_service_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
-                function AppComponent() {
+                function AppComponent(tweetService) {
                     this.post = {
                         title: "Title",
                         isFavorite: true
                     };
+                    this.tweets = tweetService.getTweets();
                 }
                 AppComponent.prototype.onFavoriteChange = function ($event) {
                     console.log($event);
@@ -43,10 +50,11 @@ System.register(['angular2/core', './courses.component', './author.component', '
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n    <link data-require=\"bootstrap-css@3.3.6\" data-semver=\"3.3.6\" rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\" />\n    <h1>My name is judy</h1><courses></courses><authers></authers>\n    <favorite [isFavorite]= \"post.isFavorite\" (change)=\"onFavoriteChange($event)\"></favorite>\n    <heart></heart>\n    ",
-                        directives: [courses_component_1.CoursesComponent, author_component_1.AuthersComponent, favorite_component_1.FavoriteComponent, heart_component_1.HeartComponent]
+                        template: "\n    <link data-require=\"bootstrap-css@3.3.6\" data-semver=\"3.3.6\" rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\" />\n     <div *ngFor=\"#tweet of tweets\">\n            <tweet [data]=\"tweet\"></tweet>\n        </div>\n    ",
+                        directives: [courses_component_1.CoursesComponent, author_component_1.AuthersComponent, favorite_component_1.FavoriteComponent, heart_component_1.HeartComponent, tweet_component_1.TweetComponent],
+                        providers: [tweet_service_1.TweetService]
                     }), 
-                    __metadata('design:paramtypes', [])
+                    __metadata('design:paramtypes', [tweet_service_1.TweetService])
                 ], AppComponent);
                 return AppComponent;
             }());
