@@ -25,6 +25,7 @@ export class TweetService {
             body: "10 Reasons Why Web Projects Fail ",
             totalLikes: 1,
             iLike: true
-        }];
+        }
+        ];
     }
 }

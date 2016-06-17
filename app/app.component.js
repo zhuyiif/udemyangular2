@@ -38,6 +38,7 @@ System.register(['angular2/core', './courses.component', './author.component', '
         execute: function() {
             AppComponent = (function () {
                 function AppComponent(tweetService) {
+                    this.viewMode = "test";
                     this.post = {
                         title: "Title",
                         isFavorite: true
@@ -50,7 +51,7 @@ System.register(['angular2/core', './courses.component', './author.component', '
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n    <link data-require=\"bootstrap-css@3.3.6\" data-semver=\"3.3.6\" rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\" />\n     <div *ngFor=\"#tweet of tweets\">\n            <tweet [data]=\"tweet\"></tweet>\n        </div>\n    ",
+                        template: "\n    <link data-require=\"bootstrap-css@3.3.6\" data-semver=\"3.3.6\" rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\" />\n\n    <div *ngIf =\"tweets.length > 0\">\n     <div *ngFor=\"#tweet of tweets\">\n            <tweet [data]=\"tweet\"></tweet>\n     </div>\n    </div>\n\n     <div *ngIf =\"tweets.length == 0\">\n      no tweets !\n     </div>\n\n     <ul class=\"nav nav-pills\">\n      <li [class.active] = \"viewMode == 'Home'\"><a (click)=\"viewMode = 'Home'\">Home</a></li>\n      <li [class.active] = \"viewMode == 'Profile'\"><a (click)=\"viewMode = 'Profile'\">Profile</a></li>\n      <li><a>Messages</a></li>\n    </ul>\n\n    <div [ngSwitch]=\"viewMode\">\n      <template [ngSwitchWhen] ='\"Home\"'>Home is my Home</template>\n      <template [ngSwitchWhen] ='\"Profile\"'>Profile is my</template>\n      hahaha\n    </div>\n\n    \n    ",
                         directives: [courses_component_1.CoursesComponent, author_component_1.AuthersComponent, favorite_component_1.FavoriteComponent, heart_component_1.HeartComponent, tweet_component_1.TweetComponent],
                         providers: [tweet_service_1.TweetService]
                     }), 
