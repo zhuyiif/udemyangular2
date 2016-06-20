@@ -5,6 +5,8 @@ import {FavoriteComponent} from './favorite.component';
 import {HeartComponent} from './heart.component'
 import {TweetComponent} from './tweet.component'
 import {TweetService} from './tweet.service'
+import {ZippyComponent} from './zippy.component';
+import {ContactFormComponent} from './contact-form.component'
 
 
 @Component({
@@ -34,10 +36,18 @@ import {TweetService} from './tweet.service'
       hahaha
     </div>
 
+
+<zippy title="Who can see my stuff?">
+            Content of who can see my stuff
+        </zippy>
+        <zippy title="Who can contact me?">
+            Content of who can contact me
+        </zippy>
     
+    <contact-form></contact-form>
     `
   ,
-  directives: [CoursesComponent, AuthersComponent, FavoriteComponent, HeartComponent, TweetComponent],
+  directives: [CoursesComponent, AuthersComponent, FavoriteComponent, HeartComponent, TweetComponent, ZippyComponent,ContactFormComponent],
   providers: [TweetService]
 })
 export class AppComponent {

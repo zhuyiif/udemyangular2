@@ -1,0 +1,29 @@
+<link data-require="bootstrap-css@3.3.6" data-semver="3.3.6" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+/>
+<form>
+    <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input ngControl="firstname" 
+        #firstName="ngForm"
+        id="firstname" 
+        type="text" 
+        class="form-control" required>
+        <div class="alert alert-danger" *ngIf="!firstName.valid && firstName.touched">First Name is required
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="comment"></label>
+        <textarea 
+        ngControl="comment"
+         #comment="ngForm"
+        id="comment" 
+        cols="30" rows="10" 
+        class="form-control" required>
+            </textarea>
+        <div class="alert alert-danger" *ngIf="!comment.valid && comment.touched"> 
+        Comment is required
+        </div>
+    </div>
+    <button class="btn btn-primary" type="submit">Submit</button>
+</form>

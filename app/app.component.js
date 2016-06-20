@@ -1,4 +1,4 @@
-System.register(['angular2/core', './courses.component', './author.component', './favorite.component', './heart.component', './tweet.component', './tweet.service'], function(exports_1, context_1) {
+System.register(['angular2/core', './courses.component', './author.component', './favorite.component', './heart.component', './tweet.component', './tweet.service', './zippy.component', './contact-form.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', './courses.component', './author.component', '
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, courses_component_1, author_component_1, favorite_component_1, heart_component_1, tweet_component_1, tweet_service_1;
+    var core_1, courses_component_1, author_component_1, favorite_component_1, heart_component_1, tweet_component_1, tweet_service_1, zippy_component_1, contact_form_component_1;
     var AppComponent;
     return {
         setters:[
@@ -34,6 +34,12 @@ System.register(['angular2/core', './courses.component', './author.component', '
             },
             function (tweet_service_1_1) {
                 tweet_service_1 = tweet_service_1_1;
+            },
+            function (zippy_component_1_1) {
+                zippy_component_1 = zippy_component_1_1;
+            },
+            function (contact_form_component_1_1) {
+                contact_form_component_1 = contact_form_component_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
@@ -51,8 +57,8 @@ System.register(['angular2/core', './courses.component', './author.component', '
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n    <link data-require=\"bootstrap-css@3.3.6\" data-semver=\"3.3.6\" rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\" />\n\n    <div *ngIf =\"tweets.length > 0\">\n     <div *ngFor=\"#tweet of tweets\">\n            <tweet [data]=\"tweet\"></tweet>\n     </div>\n    </div>\n\n     <div *ngIf =\"tweets.length == 0\">\n      no tweets !\n     </div>\n\n     <ul class=\"nav nav-pills\">\n      <li [class.active] = \"viewMode == 'Home'\"><a (click)=\"viewMode = 'Home'\">Home</a></li>\n      <li [class.active] = \"viewMode == 'Profile'\"><a (click)=\"viewMode = 'Profile'\">Profile</a></li>\n      <li><a>Messages</a></li>\n    </ul>\n\n    <div [ngSwitch]=\"viewMode\">\n      <template [ngSwitchWhen] ='\"Home\"'>Home is my Home</template>\n      <template [ngSwitchWhen] ='\"Profile\"'>Profile is my</template>\n      hahaha\n    </div>\n\n    \n    ",
-                        directives: [courses_component_1.CoursesComponent, author_component_1.AuthersComponent, favorite_component_1.FavoriteComponent, heart_component_1.HeartComponent, tweet_component_1.TweetComponent],
+                        template: "\n    <link data-require=\"bootstrap-css@3.3.6\" data-semver=\"3.3.6\" rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\" />\n\n    <div *ngIf =\"tweets.length > 0\">\n     <div *ngFor=\"#tweet of tweets\">\n            <tweet [data]=\"tweet\"></tweet>\n     </div>\n    </div>\n\n     <div *ngIf =\"tweets.length == 0\">\n      no tweets !\n     </div>\n\n     <ul class=\"nav nav-pills\">\n      <li [class.active] = \"viewMode == 'Home'\"><a (click)=\"viewMode = 'Home'\">Home</a></li>\n      <li [class.active] = \"viewMode == 'Profile'\"><a (click)=\"viewMode = 'Profile'\">Profile</a></li>\n      <li><a>Messages</a></li>\n    </ul>\n\n    <div [ngSwitch]=\"viewMode\">\n      <template [ngSwitchWhen] ='\"Home\"'>Home is my Home</template>\n      <template [ngSwitchWhen] ='\"Profile\"'>Profile is my</template>\n      hahaha\n    </div>\n\n\n<zippy title=\"Who can see my stuff?\">\n            Content of who can see my stuff\n        </zippy>\n        <zippy title=\"Who can contact me?\">\n            Content of who can contact me\n        </zippy>\n    \n    <contact-form></contact-form>\n    ",
+                        directives: [courses_component_1.CoursesComponent, author_component_1.AuthersComponent, favorite_component_1.FavoriteComponent, heart_component_1.HeartComponent, tweet_component_1.TweetComponent, zippy_component_1.ZippyComponent, contact_form_component_1.ContactFormComponent],
                         providers: [tweet_service_1.TweetService]
                     }), 
                     __metadata('design:paramtypes', [tweet_service_1.TweetService])
