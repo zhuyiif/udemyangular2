@@ -63,4 +63,8 @@ export class AppComponent {
   onFavoriteChange($event) {
     console.log($event);
   }
+  onSubmit(form) {
+    console.log(form);
+
+  }
 }

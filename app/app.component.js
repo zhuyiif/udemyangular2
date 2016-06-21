@@ -54,6 +54,9 @@ System.register(['angular2/core', './courses.component', './author.component', '
                 AppComponent.prototype.onFavoriteChange = function ($event) {
                     console.log($event);
                 };
+                AppComponent.prototype.onSubmit = function (form) {
+                    console.log(form);
+                };
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',

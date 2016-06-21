@@ -1,28 +1,26 @@
 <link data-require="bootstrap-css@3.3.6" data-semver="3.3.6" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
 />
-<form>
+<form #f="ngForm" (ngSubmit)="onSubmit(f.form)">
     <div class="form-group">
         <label for="firstName">First Name</label>
-        <input ngControl="firstname" 
-        #firstName="ngForm"
-        id="firstname" 
-        type="text" 
-        class="form-control" required>
-        <div class="alert alert-danger" *ngIf="!firstName.valid && firstName.touched">First Name is required
+        <input ngControl="firstname" #firstName="ngForm" id="firstname" type="text" class="form-control" required minlength="3">
+        <div *ngIf="firstName.touched && firstName.errors">
+
+            <div class="alert alert-danger" *ngIf="firstName.errors.required">First Name is required
+            </div>
+
+            <div class="alert alert-danger" *ngIf="firstName.errors.minlength">First Name have minlength 3
+            </div>
         </div>
+
     </div>
 
     <div class="form-group">
         <label for="comment"></label>
-        <textarea 
-        ngControl="comment"
-         #comment="ngForm"
-        id="comment" 
-        cols="30" rows="10" 
-        class="form-control" required>
+        <textarea ngControl="comment" #comment="ngForm" id="comment" cols="30" rows="10" class="form-control" required>
             </textarea>
-        <div class="alert alert-danger" *ngIf="!comment.valid && comment.touched"> 
-        Comment is required
+        <div class="alert alert-danger" *ngIf="!comment.valid && comment.touched">
+            Comment is required
         </div>
     </div>
     <button class="btn btn-primary" type="submit">Submit</button>

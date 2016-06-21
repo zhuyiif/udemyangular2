@@ -10,5 +10,8 @@ import {Component,Input} from 'angular2/core';
  
 })
 export class ContactFormComponent {
- 
+   onSubmit(form) {
+    console.log(form);
+
+  }
 }
